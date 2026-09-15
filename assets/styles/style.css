@@ -15,6 +15,7 @@ body {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
@@ -78,8 +79,6 @@ h1, h2, .section__title {
 }
 
 h1 {
-  letter-spacing: 7px;
-  font-size: 3rem;
   color: #2D2D2D;
 }
 
@@ -102,15 +101,11 @@ code {
   background-color: #F2B8B5;
 }
 
-code {
-  overflow: auto;
-}
-
 .code-text {
-  overflow: auto;
-  font-size: 1.2rem;
+  max-width: 100%;
+  overflow-x: auto;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
   white-space: pre;
-  overflow-wrap: anywhere;
 }
 
 .profile-photo {
@@ -272,7 +267,11 @@ nav {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
+  .container::before {
+    display: none;
+  }
+
   .content {
     grid-template-columns: 1fr;
   }
@@ -285,11 +284,19 @@ nav {
   .cv-content {
     padding: 10px;
   }
+
+  .languages__item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    gap: 15px;
+  }
 }
 
 @media (max-width: 600px) {
   header {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 

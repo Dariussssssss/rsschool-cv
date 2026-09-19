@@ -1,0 +1,287 @@
+:root {
+  --page-background: #FFFDF7;
+  --dark-gray: #2D2D2D;
+  --light-gray: #333333;
+  --pink: #F2B8B5;
+  --vertical-padding: 20px 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arimo", sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  position: relative;
+  width: min(100%, 1200px);
+  margin: 20px auto;
+  padding: clamp(20px, 4vw, 50px);
+  background-color: var(--page-background);
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 31%;
+  width: 3px;
+  background-color: var(--dark-gray);
+  z-index: 0;
+}
+
+header, footer {
+  position: relative;
+  background-color: var(--page-background);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: var(--vertical-padding);
+}
+
+.profile-photo {
+  width: clamp(120px, 20vw, 200px);
+  height: clamp(120px, 20vw, 200px);
+  object-fit: cover;
+  object-position: top;
+}
+
+.my-name, .section__title {
+  color: var(--dark-gray);
+}
+
+.job-title, .text {
+  color: var(--light-gray);
+}
+
+.my-name, .job-title, .section__title {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+}
+
+.my-name {
+  letter-spacing: clamp(2px, 1vw, 7px);
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.job-title {
+  letter-spacing: clamp(2px, 0.7vw, 5px);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+.section__title {
+  letter-spacing: 5px;
+  font-size: 1.5rem;
+  padding-bottom: 20px;
+}
+
+.text {
+  font-family: "Arimo", sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  font-weight: 300;
+  letter-spacing: .1em;
+  line-height: 1.7;
+}
+
+.profile {
+  padding: var(--vertical-padding);
+  display: grid;
+  grid-template-columns: 30% minmax(0, 1fr);
+}
+
+.cv-content {
+  min-width: 0;
+}
+
+section {
+  padding: clamp(25px, 4vw, 50px) 0;
+  border-bottom: 3px solid var(--dark-gray);
+}
+
+.aside, .cv-content {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  letter-spacing: 2px;
+  transition: color 0.5s ease-out;
+}
+
+.footer__link-content, .contacts__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.languages__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.skills__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.skills__name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 130px;
+  flex-shrink: 0;
+}
+
+.skills__arrow {
+  color: var(--pink);
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+.skills__level {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.skills__dot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--pink);
+  border-radius: 50%;
+}
+
+.skills__dot--filled {
+  background-color: var(--pink);
+}
+
+code {
+  background-color: var(--pink);
+}
+
+.code-text {
+  max-width: 100%;
+  overflow-x: auto;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  white-space: pre;
+}
+
+.projects__item::before {
+  content: "›";
+  margin-right: 10px;
+  color: var(--pink);
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+.footer__list {
+  padding: var(--vertical-padding);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+@media (min-width: 961px) {
+  section:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: var(--pink);
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .header__photo-wrapper {
+    order: -1;
+  }
+}
+
+@media (max-width: 960px) {
+  .container::before {
+    display: none;
+  }
+
+  .profile {
+    grid-template-columns: 1fr;
+  }
+
+  .aside, .cv-content {
+    padding: 0 10px;
+  }
+
+  .languages__item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

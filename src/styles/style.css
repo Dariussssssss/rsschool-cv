@@ -5,21 +5,19 @@
   --pink: #F2B8B5;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: none;
 }
+
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Arimo", sans-serif;
   line-height: 1.5;
   min-height: 100vh;
   overflow-x: hidden;
@@ -29,8 +27,12 @@ a {
   text-decoration: none;
 }
 
-ul,
-ol {
+a:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
+}
+
+ul, ol {
   list-style: none;
 }
 
@@ -59,8 +61,7 @@ img {
   z-index: 0;
 }
 
-header,
-footer {
+header, footer {
   position: relative;
   background-color: var(--page-background);
 }
@@ -83,12 +84,12 @@ footer {
 
 h1, h2, .section__title {
   font-family: "Raleway", sans-serif;
-  letter-spacing: clamp(2px, 1vw, 7px);
-  font-size: clamp(2rem, 5vw, 3rem);
   text-transform: uppercase;
 }
 
 h1, .section__title {
+  letter-spacing: clamp(2px, 1vw, 7px);
+  font-size: clamp(2rem, 5vw, 3rem);
   color: var(--dark-gray);
 }
 
@@ -116,7 +117,6 @@ h2 {
 }
 
 .profile {
-  width: 100%;
   display: grid;
   grid-template-columns: 30% minmax(0, 1fr);
 }
@@ -142,16 +142,10 @@ section:last-child {
 
 .link {
   letter-spacing: 2px;
-  transition: ease-out 0.5s;
+  transition: color 0.5s ease-out;
 }
 
 .footer__link-content, .contacts__link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.contacts__item {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -170,7 +164,7 @@ section:last-child {
   gap: 20px;
 }
 
-.skill-name {
+.skills__name {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -178,19 +172,19 @@ section:last-child {
   flex-shrink: 0;
 }
 
-.skill-name__arrow {
+.skills__arrow {
   color: var(--pink);
   font-size: 1.4em;
   font-weight: 700;
 }
 
-.skill-level {
+.skills__level {
   display: flex;
   gap: 5px;
   flex-shrink: 0;
 }
 
-.skill-level__dot {
+.skills__dot {
   width: 8px;
   height: 8px;
   border: 1px solid var(--pink);
@@ -232,19 +226,9 @@ code {
   flex-shrink: 0;
 }
 
-.rss {
-  display: block;
-  width: 40px;
-}
-
-.rss img {
-  width: 100%;
-}
-
 @media (hover: hover) and (pointer: fine) {
   .link:hover {
     color: var(--pink);
-    transition: color 0.5s;
   }
 }
 
@@ -279,8 +263,7 @@ code {
     border-right: none;
   }
 
-  aside,
-  .cv-content {
+  .aside, .cv-content {
     padding: 10px;
   }
 
